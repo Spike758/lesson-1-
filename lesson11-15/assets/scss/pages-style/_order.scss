@@ -1,0 +1,140 @@
+.order{
+    .wrapper{
+        h2{
+            @include font(700);
+            text-transform: capitalize;
+            font-size: 30px;
+        }
+        h3{
+            @include font(700);
+            text-transform: capitalize;
+        }
+        .checkbox-container{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .checkbox{
+                width: 16px;
+                height: 16px;
+                background-color: $lightgray;
+                border: 1px solid $gray;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                svg{
+                    display: none;
+                }
+                &.checked{
+                    background-color: $white;
+                    svg{
+                        display: inline-block;
+                        fill: $orange;
+                    }
+                }
+            }
+            span{
+                @include font(400);
+                font-size: 14px;
+                text-transform: capitalize;
+            }
+        }
+        form{
+            border-bottom: 1px solid $gray;
+            input{
+                width: 100%;
+                border-bottom: 1px solid $gray;
+                padding-bottom: 10px;
+                margin-bottom: 15px;
+                @include font(500);
+                transition: 500ms;
+                &:focus{
+                    border-bottom: 1px solid $orange;
+                }
+                &::placeholder{
+                    @include font(500);
+                    color: $black;
+                    text-transform: capitalize;
+                }
+            }
+            .container{
+                @extend %container;
+                margin-top: 25px;
+                input{
+                    width: 48%;
+                }
+            }
+            h3{
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            textarea{
+                border: none;
+                outline: none;
+                resize: none;
+                width: 100%;
+                height: 80px;
+                @include font(400);
+            }
+        }
+        .payment-container{
+            @extend %container;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            h2{
+                margin: 35px 0;
+            }
+            .check-order{
+                width: 48%;
+                .text-container{
+                    @extend %container;
+                    &:not(:last-child){
+                        margin-bottom: 15px;
+                        padding-bottom: 10px;
+                        border-bottom: 1px dashed $gray;
+                    }
+                    p{
+                        @include font(400);
+                        text-transform: capitalize;
+                        font-size: 14px;
+                        color: $gray;
+                        &:first-child{
+                            padding-left: 11px;
+                        }
+                        &:last-child{
+                            padding-right: 11px;
+                        }
+                        &.bold{
+                            font-weight: 700;
+                            color: $black;
+                        }
+                    }
+                }
+            }
+            .payment{
+                width: 48%;
+                .card-payment{
+                    box-shadow: 0 0 5px 2px rgba($color: $gray, $alpha: 0.2);
+                    padding: 20px 20px 30px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    p{
+                        @include font(400);
+                        color: gray;
+                        font-size: 14px;
+                        width: 95%;
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+        .btn-container{
+            display: flex;
+            justify-content: flex-end;
+            .btn.orange{
+                width: 15%;
+                padding: 15px;
+            }
+        }
+    }
+}

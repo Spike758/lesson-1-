@@ -1,0 +1,286 @@
+@import 'default';
+
+
+$black: #000;
+$white: #fff;
+$mainBlack: #202020;
+$orange:#fc543a;
+$pink: #EF5DA8;
+$blue:#0085FF;
+$gray: #939393;
+$lightgray: #e3e3e3;
+
+#orange{
+    background-color: $orange;
+}
+#black{
+    background-color: $black;
+}
+#pink{
+    background-color: $pink;
+}
+#blue{   
+    background-color: $blue;
+}
+
+@mixin font($size){
+    font-family: 'Montserrat', sans-serif;
+    font-weight: $size;
+}
+@mixin button($color){
+    border: 1px solid $color;
+    color: $color;
+    @include font(500);
+    text-transform: uppercase;
+    padding: 10px 0;
+    background-color: transparent;
+    font-size: 14px;
+    transition: 0.5s;
+    width: 40%;
+    border-radius: 5px;
+}
+@mixin activeButton($color){
+    @include button($color);
+    background-color: $color;
+    color: $white;
+    cursor: pointer;
+}
+@mixin cover($height){
+    position: relative;
+    width: 100%;
+    padding-top: $height;
+    img, .content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+%container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn{
+    &.orange{
+        @include button($orange);
+        &:hover{
+            @include activeButton($orange);
+        }
+    }
+    &.blue{
+        @include button($blue);
+        &:hover{
+            @include activeButton($blue);
+        }
+    }
+    &.white{
+        @include button($white);
+        &:hover{
+            @include activeButton($white);
+            color: $orange; 
+        }
+    }
+}
+
+
+.wrapper{
+    max-width: 1250px;
+    margin: 0 auto;
+}
+@import 'header';
+section{
+    margin-bottom: 60px;
+}
+
+
+.main{
+    background-color: $orange;
+    .wrapper{
+        @extend %container;
+    }
+    .block{
+        width: 45%;
+        .cover{
+            @include cover(70%);
+            img{
+                transform: scaleX(-1);
+            }
+        }
+        h1{
+            font-family: 'Permanent Marker';
+            font-size: 56px;
+            color: $white;
+            margin-bottom: 25px;
+        }
+    }
+}
+.category{
+    .wrapper{
+        .container{
+            @extend %container;
+            &:first-child{
+                margin-bottom: 3.5%;
+            }
+            .category-card{
+                width: 31%;
+                transition: 500ms;
+                img{
+                    transition: 500ms;
+                }
+                h3{
+                    transition: 500ms;
+                }
+                &:hover{
+                    cursor: pointer;
+                    scale: 1.05;
+                    h3{
+                        text-shadow: 2px 2px 0 $orange;
+                    }
+                    img{
+                        filter: blur(1px) saturate(0);
+                    }
+                }
+                .cover{
+                    @include cover(100%);
+                    h3{
+                        position: absolute;
+                        z-index: 1;
+                        @include font(900);
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        bottom: 45%;
+                        text-align: center;
+                        width: 100%;
+                        color: $white;
+                        font-size: 24px;
+                    }
+                }
+                &.big{
+                    width: 65.5%;
+                    .cover{
+                        @include cover(47.5%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card{
+        margin-top: 35px;
+        width: 31%;
+        .cover{
+            @include cover(100%);
+            background-color: $lightgray;
+            img{
+                object-fit: contain;
+                scale: 0.8;
+                z-index: 2;
+            }
+            .circle{
+                position: absolute;
+                z-index: 1;
+                width: 60%;
+                height: 60%;
+                border-radius: 100%;
+                background-color: $white;
+                top: 20%;
+                left: 20%;
+            }
+        }
+        .card-content{
+            margin-top: 25px;
+            @include font(400);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            p{
+                margin-top: 12px
+            }
+        }
+    }
+
+.cards{
+    @extend %container;
+    .container{
+        @extend %container;
+        flex-wrap: wrap;
+    }
+    .upper-cards{
+    @extend %container;
+    flex-direction: column;
+    h2{
+        @include font(700);
+        margin-bottom: 40px;
+        font-size: 28px
+    }
+    nav{
+        @include font(400);
+        a{
+            color: $black;
+            transition: 500ms;
+            margin-right: 25px;
+            &:last-child{
+                margin-right: 0;
+            }
+            &:hover{
+                color: $orange;
+                border-bottom: 1px solid $orange;
+            }
+        }
+    }
+    }
+    .button-under{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .btn{
+            width: 15%;
+            padding: 16px;
+            margin-top: 50px;
+            &.orange{
+                width: 15%;
+            }
+        }
+    }
+}
+
+.page-title{
+    background-color: $orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+    h2{
+        @include font(700);
+        text-transform: uppercase;
+        color: $white;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    .source{
+        a,span{
+            @include font(400);
+            color: $white;
+            text-transform: capitalize
+        }
+    }
+}
+
+@import 'footer';
+@import './pages-style/product';
+@import './pages-style/cart';
+@import './pages-style/order';
+
+
+.fullpage{
+    display: none;
+    &.open{
+        display: block;
+    }
+}
+@import 'forms';

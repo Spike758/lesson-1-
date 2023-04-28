@@ -1,0 +1,39 @@
+.form-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form{
+        width: 25%;
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        border: 1px solid $gray;
+        border-radius: 20px;
+        padding: 30px;
+        &.open{
+            display: flex;
+        }
+        input:not([type=button]){
+            width: 94%;
+            padding: 3%;
+            border: 1px solid $gray;
+            border-radius: 8px;
+            @include font(400);
+        }
+        h2{
+            @include font(700);
+            font-size: 30px;
+        }
+        a{
+            @include font(500);
+            color: $black;
+            transition: 0.4s;
+            &:hover{
+                color: $orange;
+            }
+        }
+    }
+}

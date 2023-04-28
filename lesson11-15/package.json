@@ -1,0 +1,17 @@
+{
+  "name": "lesson10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "node-sass": "sass -w assets/scss/:assets/css/", 
+    "server": "node server-start.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-sass": "^8.0.0"
+  }
+}
